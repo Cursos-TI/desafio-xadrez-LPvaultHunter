@@ -12,7 +12,7 @@ int main() {
        // mover a Bispo "5" casas na diagonal
      int B = 1, movimentoBispo = 5;
     
-    printf("\nBispo na Diagonal para Cima e Direita:\n");
+    printf("\nBispo na Diagonal para Cima a Direita:\n");
     while (B <= 5) {
         printf("Bispo cima Direita\n");
         B++;
