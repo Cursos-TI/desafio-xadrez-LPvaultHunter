@@ -4,60 +4,81 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-       // mover a Bispo "5" casas na diagonal
-     int B = 1, movimentoBispo = 5;
-    
-    printf("\nBispo na Diagonal para Cima a Direita:\n");
-    while (B <= 5) {
-        printf("Bispo cima Direita\n");
-        B++;
-    }
+// Função recursiva para mover a Torre
+void moverTorre(int casas) {
+    if (casas <= 0) return;
+    printf("Direita\n");
+    moverTorre(casas - 1);
+}
 
-printf("\n");
+// Função recursiva para mover a Rainha
+void moverRainha(int casas) {
+    if (casas <= 0) return;
+    printf("Esquerda\n");
+    moverRainha(casas - 1);
+}
 
-    // Implementação de Movimentação da Torre
-   
-    // mover a Torre "5" casas a direita
-    printf("Torre 5 casas a direita:\n");
-    for (int T = 0; T < 5; T++)
-    {
-        printf("Torre a direita\n"); 
-    }
+// Função recursiva para o Bispo (com chamada externa para loop aninhado)
+void moverBispoRecursivo(int vertical, int horizontal) {
+    if (vertical <= 0 || horizontal <= 0) return;
+    printf("Cima Direita\n");
+    moverBispoRecursivo(vertical - 1, horizontal - 1);
+}
 
-printf("\n");
+// Movimento do Cavalo com loops aninhados e controle de fluxo
+void moverCavaloL() {
+    int movimentosVerticais = 2;
+    int movimentosHorizontais = 1;
 
-    // Implementação de Movimentação da Rainha
-      // mover a Rainha "8" casas a esquerda
-     int R = 1, movimentoRainha = 8;
+    printf("\nMovimento do Cavalo (em 'L': 2 para Cima e 1 para Direita):\n");
 
-    printf("\nRainha 8 casas a esquerda):\n");
-
-    do{
-        printf("Rainha a esquerda\n");
-        R++;
-    } while (R <= movimentoRainha);
-
-    //Movimento do cavalo: 2 casas para baixo e 1 para a esquerda(em L)
-    int movimentosVerticais = 2, movimentosHorizontais = 1;
-
-    printf("\n Cavalo movimento em 'L': 2 para baixo, 1 para esquerda \n");
-
-     for (int l = 0; l < movimentosHorizontais; l++) {
-        // Movimento vertical (2 vezes para baixo)
-        int contadorVertical = 0;
-        while (contadorVertical < movimentosVerticais) {
-            printf("Baixo\n");
-            contadorVertical++;
+    for (int i = 0; i < movimentosVerticais; i++) {
+        if (i == 1) continue; // Simula um controle de lógica se necessário
+        for (int j = 0; j < movimentosHorizontais + 1; j++) {
+            if (j == 1) {
+                printf("Direita\n");
+                break;
+            }
+            printf("Cima\n");
+            printf("Cima\n");
         }
-
-        // Movimento horizontal (1 vez para esquerda)
-        printf("Esquerda\n");
     }
+}
+
+// Movimento do Bispo com loops aninhados (loop externo = vertical, interno = horizontal)
+void moverBispoComLoops(int passos) {
+    printf("\nMovimento do Bispo com Loops Aninhados (Diagonal para Cima e Direita):\n");
+    for (int linha = 1; linha <= passos; linha++) {
+        for (int coluna = 1; coluna <= 1; coluna++) {
+            printf("Cima Direita\n");
+        }
+    }
+}
+
+int main() {
+    // Movimento da Torre com recursão
+    int casasTorre = 5;
+    printf("Movimento da Torre (5 casas para a Direita ):\n");
+    moverTorre(casasTorre);
+
+    // Movimento do Bispo com recursão
+    int casasBispo = 5;
+    printf("\nMovimento do Bispo (5 casas na Diagonal ):\n");
+    moverBispoRecursivo(casasBispo, casasBispo);
+
+    // Movimento do Bispo com loops aninhados (extra)
+    moverBispoComLoops(5);
+
+    // Movimento da Rainha com recursão
+    int casasRainha = 8;
+    printf("\nMovimento da Rainha (8 casas para a Esquerda ):\n");
+    moverRainha(casasRainha);
+
+    // Movimento do Cavalo com loops complexos
+    moverCavaloL();
+
+ 
 
     
 
