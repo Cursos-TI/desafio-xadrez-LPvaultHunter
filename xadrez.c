@@ -42,6 +42,23 @@ printf("\n");
         R++;
     } while (R <= movimentoRainha);
 
+    //Movimento do cavalo: 2 casas para baixo e 1 para a esquerda(em L)
+    int movimentosVerticais = 2, movimentosHorizontais = 1;
+
+    printf("\n Cavalo movimento em 'L': 2 para baixo, 1 para esquerda \n");
+
+     for (int l = 0; l < movimentosHorizontais; l++) {
+        // Movimento vertical (2 vezes para baixo)
+        int contadorVertical = 0;
+        while (contadorVertical < movimentosVerticais) {
+            printf("Baixo\n");
+            contadorVertical++;
+        }
+
+        // Movimento horizontal (1 vez para esquerda)
+        printf("Esquerda\n");
+    }
+
     
 
     // Nível Aventureiro - Movimentação do Cavalo
